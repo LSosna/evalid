@@ -1,0 +1,15 @@
+{
+ "title": "EVALID: A Pre-Registered Identifiability Protocol for Bounding Nuisance Capacity in Empirical Claims",
+ "upload_type": "software",
+ "license": "MIT",
+ "version": "0.3.3",
+ "creators": [
+  {"name": "Sosna, Lukas A.",
+   "orcid": "0009-0004-1266-9729",
+   "affiliation": "Independent Researcher"}
+ ],
+ "keywords": ["pre-registration", "identifiability", "degeneracy",
+              "benchmark evaluation", "reproducibility", "gravitational waves",
+              "MMLU"],
+ "description": "EVALID fixes predictions, numeric thresholds and the resampling unit before data are loaded, publishes passes and failures alike, and logs every correction rather than repairing it silently. Version 0.3.2 requires a numerical uncertainty on every threshold comparison, introduces INDETERMINATE and UNDERDETERMINED verdict states, registers a condition-number ceiling in advance, and requires disclosure where the auditor is also the author of the audited object. Ships with a worked example: a pre-registered falsification audit in which the protocol was aimed at its own author's prior gravitational-wave dispersion proposal, and twelve of thirteen registered predictions failed."
+}

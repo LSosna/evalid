@@ -1,0 +1,25 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt && pip install -e .
+      - name: Protocol machinery self-test
+        run: evalid selftest
+      - name: Audit reproducer self-test (offline)
+        run: python audits/gw-srag/code/reproduce.py --selftest
+      - name: Manifest integrity
+        run: evalid manifest verify audits/gw-srag
+      - name: Anchor verification
+        run: evalid anchors verify audits/gw-srag/anchors.json --root audits/gw-srag
+      - name: Package conformance
+        run: evalid conform audits/gw-srag

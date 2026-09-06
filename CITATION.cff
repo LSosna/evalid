@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "EVALID: A Pre-Registered Identifiability Protocol"
+message: "If you use this protocol or software, please cite it."
+type: software
+authors:
+  - family-names: Sosna
+    given-names: Lukas A.
+    orcid: "https://orcid.org/0009-0004-1266-9729"
+    affiliation: "Independent Researcher"
+version: 0.3.3
+doi: "10.5281/zenodo.22545297"
+license: MIT
+repository-code: "https://github.com/LSosna/evalid"
+abstract: >-
+  EVALID is a pre-registered audit protocol for bounding how much of a reported
+  empirical quantity can be produced without the capability it is claimed to
+  evidence. Predictions, numeric thresholds and the resampling unit are fixed
+  before data are loaded; passes and failures are both published; and every
+  correction is logged rather than silently repaired. Version 0.3.2 adds a
+  mandatory numerical uncertainty on every threshold comparison, an
+  INDETERMINATE verdict state, a registered condition-number ceiling, and
+  mandatory disclosure of self-audit.
+keywords:
+  - pre-registration
+  - identifiability
+  - degeneracy
+  - benchmark evaluation
+  - reproducibility

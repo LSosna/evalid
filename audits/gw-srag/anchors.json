@@ -1,0 +1,584 @@
+{
+ "document": "REPORT.md",
+ "audit_id": "EVALID-AUDIT-GW-SRAG",
+ "protocol_version": "0.3.2",
+ "note": "Every numeric quantity printed in REPORT.md, bound to the file and json_path it was read from (protocol 5.1). Coverage is reported as verified/defined, not passed/passed.",
+ "anchors": [
+  {
+   "id": "P1 PN order at alpha=1 is 2.5",
+   "claimed": 2.5,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P1_pn_order['1']"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P1 PN order at alpha=0 is 1.0",
+   "claimed": 1.0,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P1_pn_order['0']"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "C(0.08) recomputed",
+   "claimed": 0.10509,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2a['C_0.08_recomputed']"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "C(0.08) as stated",
+   "claimed": 0.18,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2a['C_0.08_stated']"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "A(0.08) = lam/C",
+   "claimed": 0.7613,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2a['A_0.08']"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "dPhi 50->200Hz recomputed",
+   "claimed": 1.0553,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2b.dPhi_recomputed_rad"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "dPhi as stated",
+   "claimed": 0.24,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2b.dPhi_stated_rad"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "C required for 0.24 rad",
+   "claimed": 0.4621,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2b['C_required_for_0.24']"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "lambda energy def, Planck",
+   "claimed": 0.3412,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2c_lambda_table[0].lambda_energy_def_A"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "lambda energy def, cluster",
+   "claimed": 3.4116e+45,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2c_lambda_table[5].lambda_energy_def_A"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "lambda compactness, spiral",
+   "claimed": 2.4752e-08,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2c_lambda_table[4].lambda_compactness_def_B"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "lambda energy, spiral",
+   "claimed": 1.1372e+41,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2c_lambda_table[4].lambda_energy_def_A"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "Mpc needed for 0.24 rad",
+   "claimed": 8.8889e+20,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2e_rate['Mpc_needed_for_0.24_rad']"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "Hubble radius Mpc",
+   "claimed": 4300.0,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P2e_rate.Hubble_radius_Mpc"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "A floor minimum",
+   "claimed": 0.70523,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.A_floor.A_min"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "lambda* at the floor",
+   "claimed": 0.21035,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.A_floor.lambda_star"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "min dPhi 50->200Hz",
+   "claimed": 0.97766,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.A_floor.dPhi_min_50_200Hz_rad"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "P7 exact p at r=0.5 n=15",
+   "claimed": 0.0577,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P7['p_at_r0.5_n15']"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "P7 r needed for p<0.01 at n=15",
+   "claimed": 0.6411,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P7['r_needed_p0.01_n15']"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "P7 n needed for p<0.01 at r=0.5",
+   "claimed": 26,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P7['n_needed_p0.01_r0.5']"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P8 host path fraction, 3 kpc",
+   "claimed": 7.5e-05,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P8_host_path_fraction.3kpc_at_40Mpc"
+   },
+   "tolerance": 1e-06
+  },
+  {
+   "id": "P8 host path fraction, 20 kpc",
+   "claimed": 0.0005,
+   "source": {
+    "file": "results/t1_internal.json",
+    "json_path": "$.P8_host_path_fraction.20kpc_at_40Mpc"
+   },
+   "tolerance": 1e-06
+  },
+  {
+   "id": "sigma(A_log) marginalised, BNS",
+   "claimed": 26.048,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.sigma_A_log_marginalised"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "sigma(A_log) fixed GR, BNS",
+   "claimed": 0.06339,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.sigma_A_log_fixed_GR"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "degeneracy degradation factor",
+   "claimed": 410.9,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.degradation_factor"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "sigma(Mc)/Mc BNS validation",
+   "claimed": 0.001492,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.sigma_mc_over_mc"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "corr(A_log, phic)",
+   "claimed": -0.9992,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.corr_Alog_phic"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "corr(A_log, ln eta)",
+   "claimed": -0.9975,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.corr_Alog_lneta"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "corr(A_log, chi)",
+   "claimed": 0.9939,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.corr_Alog_chi"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "corr(A_log, ln Mc)",
+   "claimed": 0.9833,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.corr_Alog_lnmc"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "BNS cond number admissible",
+   "claimed": 39680000000000.0,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.cond_number"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "BNS gate OK",
+   "claimed": "OK",
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.gate"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "BBH gate UNDERDETERMINED",
+   "claimed": "UNDERDETERMINED",
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BBH_GW150914like.gate"
+   },
+   "tolerance": 0.0001
+  },
+  {
+   "id": "registered conditioning ceiling",
+   "claimed": 1000000000000000.0,
+   "source": {
+    "file": "results/t2_fisher.json",
+    "json_path": "$.BNS_GW170817like.registered_ceiling"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "FF at lam=0.08",
+   "claimed": 0.9998748,
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.ff_ladder[0].FF"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "residual sigma at lam=0.08, SNR25",
+   "claimed": 0.3957,
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.ff_ladder[0].sig25"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "Mc fractional bias at lam=0.08",
+   "claimed": 6.122e-05,
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.ff_ladder[0].mc_frac_bias"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "chi bias at lam=0.08",
+   "claimed": 0.009446,
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.ff_ladder[0].chi_rec"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "FF at lam=1e-4",
+   "claimed": 0.9984309,
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.ff_ladder[1].FF"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "residual sigma at lam=1e-4, SNR25",
+   "claimed": 1.3999,
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.ff_ladder[1].sig25"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "SNR needed 3sigma at lam=0.08",
+   "claimed": 189.57,
+   "source": {
+    "file": "results/t5_derived.json",
+    "json_path": "$['SNR_needed_3sigma_lam0.08']"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "events needed 3sigma at SNR25",
+   "claimed": 57.498,
+   "source": {
+    "file": "results/t5_derived.json",
+    "json_path": "$['N_events_3sigma_lam0.08_snr25']"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "significance at SPARC lambda",
+   "claimed": 5.273,
+   "source": {
+    "file": "results/t5_derived.json",
+    "json_path": "$.sig_snr25_SPARC_lam"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "GW170817 network SNR",
+   "claimed": 32.4,
+   "source": {
+    "file": "results/t5_derived.json",
+    "json_path": "$.GW170817_network_SNR"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=0",
+   "claimed": 0.99895,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['0'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=0",
+   "claimed": 0.952,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['0'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=0.5",
+   "claimed": 0.94825,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['0.5'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=0.5",
+   "claimed": 0.9,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['0.5'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=1.5",
+   "claimed": 0.9817,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['1.5'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=1.5",
+   "claimed": 0.633,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['1.5'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=2.5",
+   "claimed": 0.91296,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['2.5'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=2.5",
+   "claimed": 0.285,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['2.5'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=3",
+   "claimed": 0.86794,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['3'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=3",
+   "claimed": 0.139,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['3'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=3.5",
+   "claimed": 0.81903,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['3.5'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=3.5",
+   "claimed": 0.036,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['3.5'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed |rho| at alpha=4",
+   "claimed": 0.76907,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['4'].recomputed"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped |rho| at alpha=4",
+   "claimed": 0.025,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.per_alpha['4'].shipped"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 recomputed max",
+   "claimed": 0.99895,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.recomputed_max"
+   },
+   "tolerance": 1e-05
+  },
+  {
+   "id": "P6 shipped max",
+   "claimed": 0.952,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.shipped_max"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 registered threshold",
+   "claimed": 0.95,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.registered_threshold"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 count above threshold, recomputed",
+   "claimed": 2,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.recomputed_n_above_threshold"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 count above threshold, shipped",
+   "claimed": 1,
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.shipped_n_above_threshold"
+   },
+   "tolerance": 1e-12
+  },
+  {
+   "id": "P6 verdict",
+   "claimed": "FAIL",
+   "source": {
+    "file": "results/p6_corrected.json",
+    "json_path": "$.verdict"
+   },
+   "tolerance": 0.0001
+  }
+ ]
+}

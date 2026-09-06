@@ -1,0 +1,7 @@
+{
+ "SNR_needed_3sigma_lam0.08": 189.56827740593212,
+ "SNR_needed_3sigma_A_floor": 204.55840727150132,
+ "N_events_3sigma_lam0.08_snr25": 57.4978108778439,
+ "sig_snr25_SPARC_lam": 5.272952761802792,
+ "GW170817_network_SNR": 32.4
+}
