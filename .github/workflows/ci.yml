@@ -13,6 +13,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -r requirements.txt && pip install -e .
+      - name: Version strings agree
+        run: python tools/check_versions.py
+      - name: No built artefacts committed
+        run: |
+          test ! -f paper/arxiv_submission.zip || \
+            { echo "paper/arxiv_submission.zip is committed; it goes stale silently"; exit 1; }
       - name: Protocol machinery self-test
         run: evalid selftest
       - name: Audit reproducer self-test (offline)

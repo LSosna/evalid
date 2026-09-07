@@ -27,7 +27,15 @@ un-endorsed submission simply sits. Expect moderation to consider
 `physics.data-an` or `cs.LG` as alternative primaries for a short
 single-example methodology note; either is an acceptable outcome.
 
-## Build
+## Build the source archive
+
+Run `./make_arxiv_zip.sh`. It rebuilds from the current sources, refuses to
+build if any citation is undefined or a `\todo` marker survives, and prints the
+DOI the paper cites so you can check it against the record you mean. The zip is
+gitignored on purpose -- a committed one goes stale and there is no signal when
+it does.
+
+## Build by hand
 
 ```bash
 cd paper

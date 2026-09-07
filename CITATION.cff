@@ -7,8 +7,8 @@ authors:
     given-names: Lukas A.
     orcid: "https://orcid.org/0009-0004-1266-9729"
     affiliation: "Independent Researcher"
-version: 0.3.4
-doi: "10.5281/zenodo.22545297"
+version: 0.3.6
+doi: "10.5281/zenodo.22649089"
 license: MIT
 repository-code: "https://github.com/LSosna/evalid"
 abstract: >-

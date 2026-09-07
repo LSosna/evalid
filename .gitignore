@@ -17,3 +17,6 @@ paper/*.bbl
 !paper/main.bbl
 paper/*.blg
 paper/*.pdf
+
+# built at submission time by paper/make_arxiv_zip.sh, never committed
+paper/arxiv_submission.zip
