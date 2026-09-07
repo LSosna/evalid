@@ -1,37 +1,31 @@
 # arXiv submission notes
 
-## Status: NOT READY TO POST
+## What this submission is
 
-`main.tex` compiles and every number in it is verified and anchored. Two
-sections are deliberately unwritten, and posting before they exist would
-reproduce the exact failure this protocol is about.
+A methodology note with one worked example: the protocol, and a pre-registered
+audit in which it falsified its author's own gravitational-wave dispersion
+proposal, then caught a defect in that audit's own output.
 
-| Blocker | Why it blocks |
-|---|---|
-| §5 (MMLU worked example) | Audit 002 v0 is partially retracted. Citing a retracted report in a paper about audit integrity is not survivable. Checklist: `audits/002-mmlu/STATUS.md`. |
-| §6.3 (cross-domain) | Audit 003 has not been run. Describing it as forthcoming is a promise, not a result. Either run it or cut the paragraph. |
-
-**Do not describe unrun work as forthcoming.** MMLU Audit 002's worst error was
-a claim published on the strength of a single unverified query. A paper that
-advertises two audits it has not completed is the same error in a different
-register.
-
-### The minimum honest submission
-
-If you want to post sooner, there is a version that is ready today: drop §5 and
-§6.3, retitle around the single worked example, and submit as a methodology
-note. It is shorter and it is completely defensible. The three-example version
-is stronger — but only once the three examples exist.
+The two additional worked examples that an earlier draft reserved space for —
+the MMLU instrument audit and a per-item model attribution audit — are **not**
+in this paper. The first is partially retracted and its reissue is outstanding;
+the second has not been run. Describing either as forthcoming would be the same
+error the paper is about, so they are absent rather than promised.
 
 ## Categories
 
-- **Primary:** `stat.ME` (methodology)
+- **Primary:** `stat.ME`
 - **Cross-list:** `cs.LG`, `gr-qc`
 
 `gr-qc` matters: the worked example makes a claim about a gravitational-wave
-dispersion proposal and gr-qc referees are the ones equipped to check it. Do
-not cross-list `astro-ph.IM` unless §5 lands and the paper genuinely spans
-instrumentation.
+dispersion proposal, and gr-qc referees are the ones equipped to check it.
+
+**Endorsement.** stat.ME requires endorsement for first-time submitters, and
+cross-lists are separately moderated. Secure an endorser who has published in
+stat.ME before submitting — this is a hard gate, not a formality, and an
+un-endorsed submission simply sits. Expect moderation to consider
+`physics.data-an` or `cs.LG` as alternative primaries for a short
+single-example methodology note; either is an acceptable outcome.
 
 ## Build
 
@@ -40,31 +34,65 @@ cd paper
 pdflatex main && bibtex main && pdflatex main && pdflatex main
 ```
 
-Needs `orcidlink` (TeX Live 2021+). If your arXiv build errors on it, delete
-the `\usepackage{orcidlink}` line and the `\,\orcidlink{...}` in the author
-block; the ORCID stays in the affiliation line.
+`orcidlink` needs TeX Live 2021+. If the arXiv build errors on it, delete the
+`\usepackage{orcidlink}` line and the `\,\orcidlink{...}` in the author block;
+the ORCID remains in the affiliation line.
 
 ## Upload
 
-Submit as a source archive: `main.tex`, `refs.bib`, `figures/`. arXiv runs
-BibTeX itself; include `main.bbl` as well if the build is fragile. Do **not**
-upload a pre-built PDF.
+Source archive: `main.tex`, `refs.bib`, `figures/`, and `main.bbl` — include
+the `.bbl` so the build does not depend on arXiv resolving `plainurl.bst`. Do
+not upload a pre-built PDF. `\date` is fixed rather than `\today`, so rebuilds
+do not silently re-date the paper.
 
 ## Pre-flight
 
-- [ ] §5 written from Audit 002 v1, or cut
-- [ ] §6.3 written from Audit 003, or cut
-- [ ] Repository URL and Zenodo DOI filled in (both `\todo` markers)
-- [ ] No `\todo` macros survive — `grep -n 'todo{' main.tex` returns nothing
+- [ ] `grep -n 'todo{' main.tex` returns nothing
+- [ ] Concept DOI (not the version DOI) cited in the paper, README and CITATION.cff
+- [ ] A GitHub *release* exists for the tag, so Zenodo actually minted the version
 - [ ] `evalid conform audits/gw-srag` passes
-- [ ] `evalid anchors verify` reports N/N verified/defined
-- [ ] Every number in the paper appears in an anchors file
-- [ ] Competing-interests statement present and names the self-audit
-- [ ] Balepur et al. cited by name wherever the question-blind method appears
-- [ ] Zenodo DOI minted **before** posting, so the paper can cite it
+- [ ] `evalid corrections ../CORRECTIONS.csv` totals match every prose mention
+- [ ] Every number in the paper is anchored, or is explicitly flagged as not anchored
+- [ ] Competing-interests statement names the self-audit
+- [ ] Use-of-AI-tools statement present, and the finder-provenance claim in it is true
+- [ ] Balepur et al. cited wherever a question-blind result appears
+- [ ] Endorser secured
+- [ ] **One paragraph of your own history added to §3.1 or the disclosure**, in
+      the first person and specific: where the theory came from, when you
+      decided to point the protocol at it, what the twelve failures looked like
+      from the inside. Deliberately not drafted for you — a paragraph written
+      by a model about your experience is the one thing in this paper that
+      would actually be dishonest. It is also the paragraph no reader will
+      mistake for a model.
+- [ ] Finder provenance resolved in `CORRECTIONS.csv` — every
+      `external-unspecified` changed to `external-human` or `external-ai`
+      (see the note at the end of this file)
 
 ## Order of operations
 
-Mint the Zenodo DOI from a tagged GitHub release first, then post to arXiv
-citing that DOI. Doing it the other way round leaves the paper pointing at a
-moving repository.
+Tag → **create a GitHub release** (this is the step that fires the Zenodo
+webhook; a bare tag does not) → let Zenodo mint the version → put the *concept*
+DOI in the paper → then post. The concept DOI always resolves to the latest
+version; a version DOI freezes a reader on whatever snapshot you happened to
+cite.
+
+
+## The one thing only you can resolve
+
+`CORRECTIONS.csv` marks most entries `finder_kind: external-unspecified`. The
+paper's quality metric — corrections found by someone other than the author —
+is only a claim about scrutiny if that column is filled in.
+
+What is already known: entry **C-18** (the P6 correlation table), **C-19** (the
+post-hoc conditioning criterion), **C-22** (the retracted P6 values still
+shipping inside `t4_rest.json`), **C-24**, **C-25** and **C-28** were found by
+an AI model run against the artefact, and are marked `external-ai`. The
+"Reviewer 1", "Reviewer 2", "Audit 001 verifier" and "hostile-referee review"
+entries are marked `external-unspecified` because only you know what they were.
+
+If those were also model runs, the honest wording is "found by an independent
+process other than the author" or "found by automated adversarial review", not
+"found by someone other than the author" — and the paper should say plainly
+that the programme has not yet been through human peer review. That is still a
+real and unusual claim. It is just a different one, and a referee who works it
+out first will treat the original wording as the finding.

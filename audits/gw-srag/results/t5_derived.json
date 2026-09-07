@@ -1,7 +1,16 @@
 {
- "SNR_needed_3sigma_lam0.08": 189.56827740593212,
- "SNR_needed_3sigma_A_floor": 204.55840727150132,
- "N_events_3sigma_lam0.08_snr25": 57.4978108778439,
- "sig_snr25_SPARC_lam": 5.272952761802792,
- "GW170817_network_SNR": 32.4
+ "SNR_needed_3sigma_lam0.08": 189.56097864327137,
+ "SNR_needed_3sigma_A_floor": 205.0501445488758,
+ "N_events_3sigma_lam0.08_snr25": 57.49338339871164,
+ "sig_snr25_SPARC_lam": 5.302732776727153,
+ "GW170817_network_SNR": 32.4,
+ "note": "A_log values on the ladder are the rounded ladder points 0.761 and 14.529; exact A(lambda) are 0.761274 and 14.528806.",
+ "environment": {
+  "python": "3.11.15",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "seed": 20260906,
+  "grid_points": 20000,
+  "n_restarts": 5
+ }
 }

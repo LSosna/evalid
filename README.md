@@ -22,7 +22,7 @@ It does not certify that a capability is real. It bounds how much of a reported
 quantity can be produced *without* the capability, and reports whether the
 remainder is identifiable.
 
-**Protocol spec:** [`protocol/EVALID_v0.3.2.md`](protocol/EVALID_v0.3.2.md)
+**Protocol spec:** [`protocol/EVALID_v0.3.4.md`](protocol/EVALID_v0.3.4.md)
 
 ---
 
@@ -112,7 +112,7 @@ Every change originates in a defect found in EVALID's own output.
 ## Repository layout
 
 ```
-protocol/EVALID_v0.3.2.md     the normative spec
+protocol/EVALID_v0.3.4.md     the normative spec
 src/evalid/                   the library and CLI
 audits/gw-srag/               worked example: self-falsification (complete)
 audits/002-mmlu/              MMLU instrument audit -- RETRACTED, v1 pending
@@ -128,6 +128,12 @@ paper/                        arXiv methodology paper source
 | `002-mmlu` | MMLU as an instrument | **Partially retracted.** Corrigendum shipped; v1 not yet written. The v0 report is deliberately **not** in this repository — see [`audits/002-mmlu/STATUS.md`](audits/002-mmlu/STATUS.md). |
 | `003` | Per-item model attribution | **Not run.** Listed in [`ROADMAP.md`](ROADMAP.md), not shipped. |
 
+`001` is not in this repository. It was an early determinism audit of the
+harness itself, predating the protocol's release requirements; its one
+substantive outcome — a real defect the author dismissed and then retracted the
+dismissal of — is entry `C-01` in the correction log. There is no conforming
+package for it and there will not be one.
+
 A folder for an audit that has not been run would be the same class of
 overstatement this protocol exists to catch.
 
@@ -135,11 +141,19 @@ overstatement this protocol exists to catch.
 
 ## The correction log
 
-[`CORRECTIONS.md`](CORRECTIONS.md) records fourteen corrections across three
-audits. Eleven were found by someone other than the author.
+[`CORRECTIONS.md`](CORRECTIONS.md) is generated from
+[`CORRECTIONS.csv`](CORRECTIONS.csv) by `evalid corrections`, so the totals
+quoted anywhere are derived rather than maintained by hand. It currently
+records 20 corrections to audit claims — 18 found by someone other than the
+author — and 8 to the release itself.
 
-That ratio is the point. An author whose published error rate is zero is an
-author who is not being checked.
+Twenty of those entries carry `finder_kind: external-unspecified`. Until each
+is resolved to a person or an AI model, the external-finder ratio is not a
+claim about human peer review, and the tool says so every time it runs.
+
+The counting rule and the per-entry finder provenance are in
+[`CORRECTIONS.csv`](CORRECTIONS.csv); `evalid corrections` derives the totals so
+they cannot drift from the table.
 
 ---
 

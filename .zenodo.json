@@ -2,7 +2,7 @@
  "title": "EVALID: A Pre-Registered Identifiability Protocol for Bounding Nuisance Capacity in Empirical Claims",
  "upload_type": "software",
  "license": "MIT",
- "version": "0.3.3",
+ "version": "0.3.4",
  "creators": [
   {"name": "Sosna, Lukas A.",
    "orcid": "0009-0004-1266-9729",

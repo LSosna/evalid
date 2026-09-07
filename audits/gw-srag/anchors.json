@@ -312,7 +312,7 @@
   },
   {
    "id": "FF at lam=0.08",
-   "claimed": 0.9998748,
+   "claimed": 0.999875,
    "source": {
     "file": "results/t4_rest.json",
     "json_path": "$.ff_ladder[0].FF"
@@ -321,7 +321,7 @@
   },
   {
    "id": "residual sigma at lam=0.08, SNR25",
-   "claimed": 0.3957,
+   "claimed": 0.395651,
    "source": {
     "file": "results/t4_rest.json",
     "json_path": "$.ff_ladder[0].sig25"
@@ -330,7 +330,7 @@
   },
   {
    "id": "Mc fractional bias at lam=0.08",
-   "claimed": 6.122e-05,
+   "claimed": 6.1e-05,
    "source": {
     "file": "results/t4_rest.json",
     "json_path": "$.ff_ladder[0].mc_frac_bias"
@@ -348,7 +348,7 @@
   },
   {
    "id": "FF at lam=1e-4",
-   "claimed": 0.9984309,
+   "claimed": 0.998431,
    "source": {
     "file": "results/t4_rest.json",
     "json_path": "$.ff_ladder[1].FF"
@@ -357,7 +357,7 @@
   },
   {
    "id": "residual sigma at lam=1e-4, SNR25",
-   "claimed": 1.3999,
+   "claimed": 1.400419,
    "source": {
     "file": "results/t4_rest.json",
     "json_path": "$.ff_ladder[1].sig25"
@@ -366,7 +366,7 @@
   },
   {
    "id": "SNR needed 3sigma at lam=0.08",
-   "claimed": 189.57,
+   "claimed": 189.560979,
    "source": {
     "file": "results/t5_derived.json",
     "json_path": "$['SNR_needed_3sigma_lam0.08']"
@@ -375,7 +375,7 @@
   },
   {
    "id": "events needed 3sigma at SNR25",
-   "claimed": 57.498,
+   "claimed": 57.493383,
    "source": {
     "file": "results/t5_derived.json",
     "json_path": "$['N_events_3sigma_lam0.08_snr25']"
@@ -384,7 +384,7 @@
   },
   {
    "id": "significance at SPARC lambda",
-   "claimed": 5.273,
+   "claimed": 5.302733,
    "source": {
     "file": "results/t5_derived.json",
     "json_path": "$.sig_snr25_SPARC_lam"
@@ -579,6 +579,58 @@
     "json_path": "$.verdict"
    },
    "tolerance": 0.0001
+  },
+  {
+   "id": "A_3sigma at SNR25",
+   "claimed": 6.9109,
+   "source": {
+    "file": "results/t3_ff.json",
+    "json_path": "$.A_3sigma_snr25"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "A_3sigma at SNR100",
+   "claimed": 1.4559,
+   "source": {
+    "file": "results/t3_ff.json",
+    "json_path": "$.A_3sigma_snr100"
+   },
+   "tolerance": 0.001
+  },
+  {
+   "id": "BBH cond number (regenerated)",
+   "claimed": 2.552e+16,
+   "source": {
+    "file": "results/t3_ff.json",
+    "json_path": "$.degeneracy.BBH_GW150914like.cond_number"
+   },
+   "tolerance": 0.01
+  },
+  {
+   "id": "BBH gate in t3 matches t2",
+   "claimed": "UNDERDETERMINED",
+   "source": {
+    "file": "results/t3_ff.json",
+    "json_path": "$.degeneracy.BBH_GW150914like.gate"
+   }
+  },
+  {
+   "id": "t4 separability points at p6_corrected",
+   "claimed": "results/p6_corrected.json",
+   "source": {
+    "file": "results/t4_rest.json",
+    "json_path": "$.separability.source"
+   }
+  },
+  {
+   "id": "SPARC-lambda residual sigma (regenerated)",
+   "claimed": 5.3027,
+   "source": {
+    "file": "results/t5_derived.json",
+    "json_path": "$['sig_snr25_SPARC_lam']"
+   },
+   "tolerance": 0.001
   }
  ]
 }

@@ -1,0 +1,13 @@
+{
+ "total_entries": 28,
+ "audit_claim_total": 20,
+ "audit_claim_external": 18,
+ "audit_claim_author": 2,
+ "release_total": 8,
+ "by_finder_kind": {
+  "author": 2,
+  "external-ai": 26
+ },
+ "unresolved_provenance": 0,
+ "counting_rule": "A correction is a confirmed finding that required a change to a shipped claim, number, verdict or stated limitation. Confirmations that something was already correct, and rejected findings, are excluded. Scope 'audit-claim' covers audit content; 'release' covers packaging."
+}

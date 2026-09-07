@@ -4,6 +4,7 @@
     evalid manifest verify <dir>
     evalid anchors  verify <anchors.json> [--root DIR]
     evalid conform         <dir>
+    evalid corrections     <CORRECTIONS.csv> [--write DIR]
     evalid selftest
     evalid version
 """
@@ -14,7 +15,8 @@ import json
 import sys
 from pathlib import Path
 
-from . import __version__, anchors as anchors_mod, manifest as manifest_mod
+from . import (__version__, anchors as anchors_mod, corrections as corr_mod,
+               manifest as manifest_mod)
 from .verdicts import PROTOCOL_VERSION
 
 
@@ -40,7 +42,7 @@ CONFORM_FILES = {
 
 def cmd_conform(args) -> int:
     root = Path(args.dir).resolve()
-    _p(f"EVALID {PROTOCOL_VERSION} conformance -- {root}\n")
+    _p(f"EVALID protocol {PROTOCOL_VERSION} / package {__version__} -- {root}\n")
     fails = 0
 
     for label, names in CONFORM_FILES.items():
@@ -96,6 +98,23 @@ def cmd_anchors(args) -> int:
     if not rep.clean:
         _p("NOT CLEAN -- do not publish (protocol 5.1)")
     return 0 if rep.clean else 1
+
+
+def cmd_corrections(args) -> int:
+    """Derive the correction counts from the log, so prose cannot drift."""
+    s = corr_mod.summarise(args.csv)
+    _p(json.dumps(s.to_dict(), indent=1))
+    if args.write:
+        d = Path(args.write)
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "CORRECTIONS.md").write_text(corr_mod.render_markdown(args.csv))
+        corr_mod.write_summary(args.csv, d / "corrections_summary.json")
+        _p(f"\nwrote {d/'CORRECTIONS.md'} and {d/'corrections_summary.json'}")
+    if s.unresolved_provenance:
+        _p(f"\nNOTE: {s.unresolved_provenance} entries have finder_kind "
+           "'external-unspecified'.\nThe external-finder ratio is not a quotable "
+           "claim about human review until\nthe author resolves them.")
+    return 0
 
 
 def cmd_selftest(args) -> int:
@@ -159,6 +178,14 @@ def cmd_selftest(args) -> int:
         chk("deprecated verdict rejected, names replacement",
             "REGISTERED_INVALID" in str(e))
 
+    from . import corrections as _c
+    try:
+        _c.load.__doc__
+        chk("correction log schema is enforced", "finder_kind" in _c.REQUIRED_COLUMNS)
+        chk("finder kinds include external-ai", "external-ai" in _c.FINDER_KINDS)
+    except Exception:
+        chk("corrections module importable", False)
+
     _p(f"\n{'SELFTEST PASS' if ok else 'SELFTEST FAIL'}")
     return 0 if ok else 1
 
@@ -183,12 +210,19 @@ def build_parser() -> argparse.ArgumentParser:
     c.add_argument("dir")
     c.set_defaults(func=cmd_conform)
 
+    x = sub.add_parser("corrections", help="derive counts from the correction log")
+    x.add_argument("csv")
+    x.add_argument("--write", default=None,
+                   help="regenerate CORRECTIONS.md and corrections_summary.json here")
+    x.set_defaults(func=cmd_corrections)
+
     s = sub.add_parser("selftest", help="offline self-test of the machinery")
     s.set_defaults(func=cmd_selftest)
 
     v = sub.add_parser("version")
     v.set_defaults(func=lambda _: (_p(f"evalid {__version__} "
                                       f"(protocol {PROTOCOL_VERSION})"), 0)[1])
+
     return ap
 
 

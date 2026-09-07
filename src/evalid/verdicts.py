@@ -6,7 +6,7 @@ package validates against it.
 """
 from __future__ import annotations
 
-PROTOCOL_VERSION = "0.3.2"
+PROTOCOL_VERSION = "0.3.4"
 
 #: Per-prediction verdicts (protocol §3.1).
 PREDICTION_VERDICTS = frozenset({

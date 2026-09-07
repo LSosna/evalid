@@ -5,10 +5,10 @@ empirical claims.**
 
 | | |
 |---|---|
-| Version | 0.3.2 |
-| Supersedes | 0.3.1 |
+| Version | 0.3.4 |
+| Supersedes | 0.3.2 |
 | Status | Normative |
-| Changes | Three, all listed in §9. All arose from defects found in EVALID's own audits. |
+| Changes | Five, all listed in §9. All arose from defects found in EVALID's own output. |
 
 ---
 
@@ -63,7 +63,14 @@ Before any data are loaded, a pre-registration document MUST fix:
    recorded.
 
 The pre-registration MUST be hashed into the release manifest (§6) and MUST NOT
-be edited after data are loaded. Registered predictions that turn out to be
+be edited after data are loaded.
+
+**It MUST also carry an independent timestamp** established *before* data are
+loaded: a pushed and tagged commit in a public repository, or a standalone
+deposit of the pre-registration alone with an external archive. A hash inside a
+manifest built after the results proves internal consistency, not chronology,
+and "pre-registered" is not a claim a reader can check without one. *(New in
+0.3.4 — see §9.5.)* Registered predictions that turn out to be
 invalid are retained and marked, never deleted (§5.2).
 
 ---
@@ -287,6 +294,26 @@ own prior work.
 
 **Consequence.** Authorship of the audited object is now part of the
 pre-registration and the report's opening section.
+
+### 9.5 Independent timestamping of the pre-registration (§2)
+
+**Origin.** The GW-SRAG package hashed its pre-registration into a manifest
+built after the results existed, in a repository whose entire history postdates
+the computation. Nothing in the public record establishes that the registration
+preceded the data, which is the one thing the word "pre-registered" asserts.
+
+**Consequence.** §2 now requires an external timestamp before data are loaded.
+
+### 9.6 Finder provenance in the correction log (§5.2)
+
+**Origin.** This programme quoted an external-finder ratio in four documents
+from a hand-maintained table, in three mutually inconsistent forms, without
+recording whether the finders were people or AI models run against the
+artefact. At least one was the latter.
+
+**Consequence.** §5.2 now requires a finder kind per entry, requires quoted
+counts to be derived from the log, and forbids counting unresolved provenance
+as human review.
 
 ### 9.4 Deprecations
 

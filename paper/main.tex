@@ -13,9 +13,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{orcidlink}
-\usepackage{xcolor}
 
-\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 \newcommand{\verdict}[1]{\textsc{#1}}
 
 \title{EVALID: A Pre-Registered Identifiability Protocol for Bounding
@@ -25,7 +23,7 @@ Nuisance Capacity in Empirical Claims}
 \small Independent Researcher\\
 \small \texttt{ORCID: 0009-0004-1266-9729}}
 
-\date{\today}
+\date{6 September 2026}
 
 \begin{document}
 \maketitle
@@ -148,6 +146,11 @@ and the report never said so; a two-sided procedure detects a subject at $13.64\
 question-blind accuracy on $n=110$ --- significantly \emph{anti}-predicted,
 meaning the instrument channel exists there but runs in reverse.
 
+The two figures in these paragraphs are quoted from that audit's corrigendum
+and are \emph{not} anchored under \S\ref{sec:threshold}: that audit predates the
+anchoring requirement and its reissue is outstanding. They are used here to
+illustrate the two requirements, not as results of the present work.
+
 \subsection{The verdict lattice}
 
 The lattice is closed; an audit may not emit a verdict outside it. Per
@@ -215,6 +218,17 @@ Thirteen predictions were registered with numeric thresholds before any
 computation. Full pre-registration and report:
 \texttt{audits/gw-srag/} in the accompanying repository.
 
+\paragraph{The audited object is not independently citable.} The SRAG/SRLG
+documents are unpublished manuscripts held by the author; the pre-registration
+identifies them by internal filename and page. A reader therefore cannot verify
+that the corpus states the quantities P2 tests --- $C(0.08) = 0.18$, the
+$0.24$\,rad headline, the $2.7\times10^{-22}$\,rad/Mpc rate. P2's verdicts are
+consequently reproducible from the formulas but not falsifiable against the
+source, and we do not ask them to carry weight beyond that. P1 and P3--P9 do
+not depend on the corpus text: they test properties of the stated functional
+form, which is reproduced in full above and in
+\texttt{audits/gw-srag/code/srag\_core.py}.
+
 \subsection{Results}
 
 Twelve of thirteen predictions fail. Three are independently fatal.
@@ -280,7 +294,7 @@ $\max_\alpha|\rho| \geq 0.95$ for the correlation between the $\ln f$ phase
 basis and $f^{\alpha-1}$ after marginalising over
 $\{\ln A, t_c, \phi_c, \ln\mathcal{M}_c, \ln\eta, \chi_{\mathrm{eff}}\}$.
 
-The originally published table reported $\max|\rho| = 0.952$ and a profile
+The table as shipped in v0 reported $\max|\rho| = 0.952$ and a profile
 falling monotonically to $0.025$ at $\alpha = 4$. An independent re-run
 recomputed the quantity four ways --- Gram--Schmidt projection with one pass
 and with re-orthogonalisation, a Gram-matrix pseudo-inverse, and the
@@ -291,7 +305,7 @@ published table (Table~\ref{tab:p6}, Figure~\ref{fig:p6}).
 \begin{table}[t]
 \centering
 \caption{Prediction P6 as published and as recomputed. The verdict direction is
-unchanged; every value in the row was wrong, and the published figure was
+unchanged; every value in the row was wrong, and the v0 figure was
 materially misleading.}
 \label{tab:p6}
 \small
@@ -346,11 +360,21 @@ says so explicitly rather than implying coverage it does not have.
 
 \subsection{Correction rate as a quality metric}
 
-Across three audits this programme has published fourteen corrections, eleven
-found by someone other than the author. We propose that this ratio, rather than
-the absence of corrections, is the appropriate quality signal for an audit
-programme: an author whose published error rate is zero is an author who is not
-being checked.
+Across three audits this programme has logged twenty corrections to audit
+claims, eighteen of them found by someone other than the author, together with
+eight corrections to the release itself. The counting rule and the per-entry
+finder provenance are published alongside, and the totals are derived from the
+log rather than maintained beside it, because an earlier version of this
+sentence quoted three mutually inconsistent numbers.
+
+We propose that this ratio, rather than the absence of corrections, is the
+appropriate quality signal for an audit programme: an author whose published
+error rate is zero is an author who is not being checked. Two caveats bound the
+claim. Most entries do not yet record whether the finder was a person or an AI
+model run against the artefact, and until they do the ratio is not evidence of
+human peer review. And a programme can always raise its own ratio by looking
+harder at itself, so the metric is a floor on scrutiny received, not a ceiling
+on quality.
 
 \section*{Data and code availability}
 
@@ -361,6 +385,18 @@ available at \url{https://github.com/LSosna/evalid} under the MIT licence, archi
 constraints; no strain data were used. Reproduce with
 \texttt{python audits/gw-srag/code/reproduce.py -{}-all}.
 
+\section*{Use of AI tools}
+
+Drafting of prose and implementation of software in this work were assisted by
+AI language models, and one of the corrections recorded in the log
+(\S\ref{sec:selfdefect}) was found by an AI model run against the artefact
+rather than by a human reviewer. Every number reported here was recomputed by
+the author; all registered predictions, thresholds, verdicts and corrections
+are the author's own and are the author's responsibility. The correction log
+records, per entry, whether the finder was the author, a person, or an AI
+model, so that the external-finder ratio in \S\ref{sec:discussion} can be read
+for what it is.
+
 \section*{Competing interests}
 
 The gravitational-wave framework audited in \S\ref{sec:gw} is the author's own
@@ -369,7 +405,7 @@ competing interests. This work was carried out independently, on the author's
 own time and equipment, using publicly available data, and is not affiliated
 with or funded by any institution.
 
-\bibliographystyle{plainurl}
+\bibliographystyle{plain}
 \bibliography{refs}
 
 \end{document}

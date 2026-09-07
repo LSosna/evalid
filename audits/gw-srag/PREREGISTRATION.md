@@ -65,6 +65,10 @@ Parameters {ln A_amp, t_c, φ_c, ln M_c, ln η, χ_eff, A}.
 Noise-weighted correlation between the `ln f` phase basis function and `f^{α−1}` for
 α ∈ {0, 0.5, 1.5, 2.5, 3, 3.5, 4} over the observing band, after projecting out
 {t_c, φ_c, ln M_c, ln η, χ_eff}.
+- α = 1 is excluded from the grid because it *is* the log term (|ρ| = 1 by
+  construction), and α = 2 because there the phase deviation is degenerate with
+  t_c and carries no waveform signature at all. Both omissions are structural,
+  not selective.
 - PASS (ΔBIC ladder is meaningful) if max_α |ρ| < 0.95.
 - FAIL if ≥ 0.95 — Model 1 and Model 2 are then not separable and the registered
   ΔBIC < −10 against Model 1 is unreachable.

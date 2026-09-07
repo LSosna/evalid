@@ -21,5 +21,12 @@ jobs:
         run: evalid manifest verify audits/gw-srag
       - name: Anchor verification
         run: evalid anchors verify audits/gw-srag/anchors.json --root audits/gw-srag
+      - name: Correction log derives cleanly
+        run: evalid corrections CORRECTIONS.csv
+      - name: CORRECTIONS.md is in sync with the CSV
+        run: |
+          evalid corrections CORRECTIONS.csv --write /tmp/gen
+          diff -q CORRECTIONS.md /tmp/gen/CORRECTIONS.md
+          diff -q corrections_summary.json /tmp/gen/corrections_summary.json
       - name: Package conformance
         run: evalid conform audits/gw-srag

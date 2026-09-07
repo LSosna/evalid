@@ -61,7 +61,7 @@ Protocol 0.3.2 §4 now requires a numerical uncertainty on every threshold
 comparison, adds the `INDETERMINATE` verdict for values inside that band, and
 requires the `implementation` uncertainty method for any quantity involving a
 projection, an orthogonalisation or a matrix inverse. See
-`protocol/EVALID_v0.3.2.md` §9.1.
+`protocol/EVALID_v0.3.4.md` §9.1.
 
 ## Reproduce it
 

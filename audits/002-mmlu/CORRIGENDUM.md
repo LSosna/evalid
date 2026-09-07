@@ -288,15 +288,10 @@ being checked. The number that matters is not how many errors are found; it is
 whether they are found by someone other than the author, and whether the author
 prints them.
 
-**On routing.** The strategy notes discuss where to publish and at what
-visibility. That decision is not mine to make and I have no view on the
-employment considerations behind it — those are questions for the relevant
-agreement and, if it matters commercially, for a lawyer. What I will say is that
-the channel is orthogonal to this document: a report containing a known-false
-central claim should not be published quietly, loudly, pseudonymously, or under
-any affiliation. Fix it first, then choose the channel. And a corrigendum this
-size argues for publishing the corrected report as v1 rather than shipping v0
-and correcting in public.
+**On sequencing.** A report containing a known-false central claim is not fit
+to publish in any form. Fix it first. A corrigendum this size argues for
+reissuing the corrected report as v1 rather than shipping v0 and correcting
+in public.
 
 ---
 

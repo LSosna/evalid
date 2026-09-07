@@ -142,7 +142,7 @@ Fisher forecasts are known to mislead exactly where correlations are this high
 |---|---|---|---|---|
 | 0.08 (rotation curve) | 0.7613 | 1.055 rad | 0.999875 | **0.40 σ** |
 | 1e−4 (GW paper) | 2.7433 | 3.803 rad | 0.998431 | 1.40 σ |
-| 2.4e−8 (SPARC) | 14.5288 | 20.141 rad | 0.977504 | **5.27 σ** |
+| 2.4e-8 (SPARC) | 14.5288 | 20.141 rad | 0.977505 | **5.30 σ** |
 
 A 1-radian coherent dephasing is nonetheless invisible: the template absorbs
 it by moving χ_eff by +0.0094 and M_c by 6.1e−5 fractionally — a chirp-mass
@@ -163,13 +163,18 @@ in this framework it is the opposite.
 
 ### Detection limits (bounding the null)
 
-3σ thresholds for this configuration: A_log ≥ 5.77 at SNR 25, ≥ 1.44 at
-SNR 100. The framework's floor, A = 0.705, is below both.
+3σ thresholds for this configuration, read off the computed ladder by
+interpolation rather than by assuming a functional form: **A_log ≥ 6.91 at
+SNR 25, ≥ 1.46 at SNR 100**. The framework's floor, A = 0.705, is below both.
+
+*(v0 quoted 5.77 and 1.44, extrapolated on the assumption that significance is
+linear in A. The computed ladder gives a local log-log slope of 0.79, so it is
+not. The floor still sits below both limits and no verdict changes.)*
 
 - **λ = 0.08 branch:** requires network SNR ≈ 190 for 3σ in one event, or
   ≈ 58 SNR-25 BNS events stacked. The loudest event in GWTC-3 (GW170817) had
   network SNR 32.4. Untestable with existing or O5 data.
-- **λ = 2.4e−8 branch:** predicts 5.27 σ in a single SNR-25 event. Already
+- **λ = 2.4e−8 branch:** predicts 5.30 σ in a single SNR-25 event. Already
   excluded by existing observations.
 
 Neither branch supports the proposal, and which branch you are on is decided
@@ -227,7 +232,7 @@ is `REGISTERED_INVALID` and superseded by P5. The correct statement is
 
 **P6 — the shipped correlation table was not reproducible.** Found by an
 independent re-run, not by me. The verdict direction was unchanged and in fact
-strengthened, but every value in the row was wrong and the published figure
+strengthened, but every value in the row was wrong and the v0 figure
 panel was materially misleading. Recorded in `CORRIGENDUM_P6.md` and in the
 repository correction log.
 
@@ -281,7 +286,7 @@ O3-versus-design difference.
 
 **Numerical admissibility (protocol §4.3).** Registered ceiling: cond(F) ≤ 1e15
 for this audit, with the achieved value reported. The BNS case achieves
-3.97e13 and is admissible. **The BBH case achieves 1.95e16 and is reported
+3.97e13 and is admissible. **The BBH case achieves 2.55e16 and is reported
 `UNDERDETERMINED`** — its σ(A_log) = 1.7e4 is a numerical artifact, not a
 physical bound. All quoted results are the BNS case.
 
@@ -291,8 +296,12 @@ physical bound. All quoted results are the BNS case.
 **Determinism.** Fitting-factor maximisation uses Nelder–Mead with warm starts
 along the A ladder, seeded, 45 restarts per point. The FF surface is smooth in
 this region and η saturates at its physical bound 0.25 throughout; a global
-optimum is not proven. The reported values reproduce to 5 decimal places at
-8,000 grid points with 9 restarts.
+optimum is not proven. Fitting factors reproduce to better than 1e-6 against the
+v0 values, and to 1e-14 at 8,000 grid points, so the FF is grid-insensitive.
+That tolerance applies to FF; the significance derived from 1 − FF is more
+sensitive, which is why the SPARC-λ residual moved from 5.27 σ to 5.30 σ on
+regeneration. Restart spread per ladder point is recorded in
+`results/t3_ff.json`.
 
 **Not assessed.** Precession, higher harmonics, tidal terms, merger–ringdown,
 calibration error, detector-network geometry. None of these can rescue a
