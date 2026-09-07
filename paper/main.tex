@@ -370,9 +370,15 @@ sentence quoted three mutually inconsistent numbers.
 We propose that this ratio, rather than the absence of corrections, is the
 appropriate quality signal for an audit programme: an author whose published
 error rate is zero is an author who is not being checked. Two caveats bound the
-claim. Most entries do not yet record whether the finder was a person or an AI
-model run against the artefact, and until they do the ratio is not evidence of
-human peer review. And a programme can always raise its own ratio by looking
+claim, and the first is severe. \textbf{Every external finder in this log was
+an AI language model run adversarially against the artefact. None was a human
+reviewer.} This work has not been through human peer review of any kind, and
+the ratio above should be read as a measure of automated adversarial scrutiny,
+not of community scrutiny. We report it because we think automated adversarial
+review is worth something and worth counting -- three of the findings it
+produced changed the protocol itself -- but it is not a substitute, and a
+reader who took the ratio for peer review would be misled. And a programme can
+always raise its own ratio by looking
 harder at itself, so the metric is a floor on scrutiny received, not a ceiling
 on quality.
 
@@ -381,21 +387,26 @@ on quality.
 Protocol specification, library, the complete gravitational-wave audit with its
 pre-registration, anchors, manifest and reproducer, and the correction log are
 available at \url{https://github.com/LSosna/evalid} under the MIT licence, archived at
-\url{https://doi.org/10.5281/zenodo.22545297}. The gravitational-wave audit is a forecast against published
+\url{https://doi.org/10.5281/zenodo.22649089}. The gravitational-wave audit is a forecast against published
 constraints; no strain data were used. Reproduce with
 \texttt{python audits/gw-srag/code/reproduce.py -{}-all}.
 
 \section*{Use of AI tools}
 
 Drafting of prose and implementation of software in this work were assisted by
-AI language models, and one of the corrections recorded in the log
-(\S\ref{sec:selfdefect}) was found by an AI model run against the artefact
-rather than by a human reviewer. Every number reported here was recomputed by
-the author; all registered predictions, thresholds, verdicts and corrections
-are the author's own and are the author's responsibility. The correction log
-records, per entry, whether the finder was the author, a person, or an AI
-model, so that the external-finder ratio in \S\ref{sec:discussion} can be read
-for what it is.
+AI language models. So was the review: of the twenty-eight corrections in the
+log, twenty-six were found by AI models run adversarially against the artefact
+and two by the author. \textbf{No part of this work has been reviewed by a
+human other than its author.} Among the AI-found corrections are the one that
+motivated the protocol change in \S\ref{sec:threshold}, the detection limits
+in \S\ref{sec:gw}, and the presence of superseded values inside a shipped
+result file.
+
+Every number reported here was recomputed by the author; all registered
+predictions, thresholds, verdicts and corrections are the author's own and are
+the author's responsibility. The correction log records the finder kind per
+entry so the ratio in \S\ref{sec:discussion} can be checked rather than taken
+on trust.
 
 \section*{Competing interests}
 

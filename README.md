@@ -147,9 +147,11 @@ quoted anywhere are derived rather than maintained by hand. It currently
 records 20 corrections to audit claims — 18 found by someone other than the
 author — and 8 to the release itself.
 
-Twenty of those entries carry `finder_kind: external-unspecified`. Until each
-is resolved to a person or an AI model, the external-finder ratio is not a
-claim about human peer review, and the tool says so every time it runs.
+Read the `finder_kind` column before you read the ratio. **Every external
+finder in this log was an AI model run adversarially against the artefact; none
+was a human reviewer.** This project has had no human peer review. The ratio
+measures automated adversarial scrutiny, which we think is worth counting, and
+which is not the same thing.
 
 The counting rule and the per-entry finder provenance are in
 [`CORRECTIONS.csv`](CORRECTIONS.csv); `evalid corrections` derives the totals so

@@ -11,6 +11,9 @@ dist/
 paper/*.aux
 paper/*.log
 paper/*.out
+# paper/main.bbl is committed on purpose: arXiv builds from it so the
+# bibliography does not depend on the remote resolving a .bst.
 paper/*.bbl
+!paper/main.bbl
 paper/*.blg
 paper/*.pdf

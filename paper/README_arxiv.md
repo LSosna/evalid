@@ -41,14 +41,19 @@ the ORCID remains in the affiliation line.
 ## Upload
 
 Source archive: `main.tex`, `refs.bib`, `figures/`, and `main.bbl` — include
-the `.bbl` so the build does not depend on arXiv resolving `plainurl.bst`. Do
+the `.bbl` so the bibliography does not depend on a remote BibTeX run. The
+style is `plain`, which is in every TeX distribution; an earlier draft used
+`plainurl`, which is not. Do
 not upload a pre-built PDF. `\date` is fixed rather than `\today`, so rebuilds
 do not silently re-date the paper.
 
 ## Pre-flight
 
 - [ ] `grep -n 'todo{' main.tex` returns nothing
-- [ ] Concept DOI (not the version DOI) cited in the paper, README and CITATION.cff
+- [ ] DOI cited in the paper, README and CITATION.cff points at the **current**
+      record, not a superseded one
+- [ ] Zenodo records are linked as versions of one another (see below), or the
+      paper says which single record it means
 - [ ] A GitHub *release* exists for the tag, so Zenodo actually minted the version
 - [ ] `evalid conform audits/gw-srag` passes
 - [ ] `evalid corrections ../CORRECTIONS.csv` totals match every prose mention
@@ -96,3 +101,22 @@ process other than the author" or "found by automated adversarial review", not
 that the programme has not yet been through human peer review. That is still a
 real and unusual claim. It is just a different one, and a referee who works it
 out first will treat the original wording as the finding.
+
+
+## A note on the two Zenodo records
+
+There are currently two unlinked records: `10.5281/zenodo.22545297` (the
+v0.3.2/0.3.3 snapshot) and `10.5281/zenodo.22649089` (v0.3.4). Neither shows a
+versions panel or a concept DOI, which means the second was created as a new
+record rather than as a new version of the first.
+
+Consequences worth knowing before you cite either:
+
+- There is **no concept DOI** to cite, so "cite the concept DOI" is not
+  available. Cite `22649089` explicitly.
+- The older record permanently contains the superseded corrigendum text and the
+  pre-fix code, and nothing on its page tells a reader a newer version exists.
+
+If Zenodo lets you link them retroactively, do that. If not, the honest
+mitigation is a short note on the old record pointing at the new one — a reader
+who lands on `22545297` from a search should not have to guess.
