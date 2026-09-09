@@ -1,11 +1,11 @@
 {
- "total_entries": 28,
+ "total_entries": 29,
  "audit_claim_total": 20,
  "audit_claim_external": 18,
  "audit_claim_author": 2,
- "release_total": 8,
+ "release_total": 9,
  "by_finder_kind": {
-  "author": 2,
+  "author": 3,
   "external-ai": 26
  },
  "unresolved_provenance": 0,

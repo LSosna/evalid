@@ -10,7 +10,7 @@ from .stats import (threshold_verdict, uncertainty_from_spread,
                     DEFAULT_COND_CEILING, UNCERTAINTY_METHODS)
 from . import anchors, manifest, corrections
 
-__version__ = "0.3.6"
+__version__ = "0.3.7"
 __all__ = [
     "PROTOCOL_VERSION", "PREDICTION_VERDICTS", "TERMINAL_VERDICTS",
     "check_prediction", "check_terminal", "VerdictError",

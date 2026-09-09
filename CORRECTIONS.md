@@ -11,8 +11,8 @@ drift from the table they claim to summarise.
 | Corrections to audit claims | 20 |
 | — found by someone other than the author | 18 |
 | — found by the author | 2 |
-| Corrections to the release/packaging | 8 |
-| Total entries | 28 |
+| Corrections to the release/packaging | 9 |
+| Total entries | 29 |
 | Entries whose finder provenance is unresolved | 0 |
 
 | ID | Audit | Claim as shipped | What is correct | Verdict change | Found by | Kind |
@@ -45,3 +45,4 @@ drift from the table they claim to summarise.
 | C-26 | release | Corrigendum section 8 carried an assistant-authored paragraph published in the author's voice referring to private notes | Removed; present in the v0.3.2 and first-tagged v0.3.4 Zenodo archives and supersedable only by a new version | none | Hostile-referee review | `external-ai` |
 | C-27 | release | Correction count stated as 14 with 11 by others | Did not reconcile with the table (10 rows) or the corrigendum (16 findings); count is now derived from CORRECTIONS.csv | none | Hostile-referee review | `external-ai` |
 | C-28 | gw-srag | 3-sigma detection limits A_log >= 5.77 (SNR 25) and >= 1.44 (SNR 100) | 6.91 and 1.46; the shipped values extrapolated on a linearity assumption the ladder contradicts (local log-log slope 0.79) | none - the amplitude floor 0.705 still sits below both limits | Independent re-run | `external-ai` |
+| C-29 | release | paper/README_arxiv.md stated that the two Zenodo records were unlinked and that no concept DOI existed | The Versions panel lists all releases and shows concept DOI 10.5281/zenodo.22545296; the claim came from a single automated page read that missed the panel | none | Author | `author` |

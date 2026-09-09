@@ -3,7 +3,7 @@
 **A pre-registered identifiability protocol for bounding nuisance capacity in
 empirical claims.**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22649089.svg)](https://doi.org/10.5281/zenodo.22649089)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22545296.svg)](https://doi.org/10.5281/zenodo.22545296)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

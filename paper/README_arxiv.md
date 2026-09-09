@@ -20,6 +20,14 @@ error the paper is about, so they are absent rather than promised.
 `gr-qc` matters: the worked example makes a claim about a gravitational-wave
 dispersion proposal, and gr-qc referees are the ones equipped to check it.
 
+**Navigating the category picker.** The submission form opens on whichever
+archive group your account defaults to; if that is physics, the "Choose
+archive" dropdown lists Astrophysics, Condensed Matter, General Relativity and
+Quantum Cosmology and so on, and `stat.ME` is not among them. Change the
+archive itself to **Statistics** first — the Subject Class dropdown then
+repopulates and offers **Methodology (stat.ME)**. Cross-lists are entered on
+the following page, not on this one.
+
 **Endorsement.** stat.ME requires endorsement for first-time submitters, and
 cross-lists are separately moderated. Secure an endorser who has published in
 stat.ME before submitting — this is a hard gate, not a formality, and an
@@ -111,20 +119,21 @@ real and unusual claim. It is just a different one, and a referee who works it
 out first will treat the original wording as the finding.
 
 
-## A note on the two Zenodo records
+## Which DOI to cite
 
-There are currently two unlinked records: `10.5281/zenodo.22545297` (the
-v0.3.2/0.3.3 snapshot) and `10.5281/zenodo.22649089` (v0.3.4). Neither shows a
-versions panel or a concept DOI, which means the second was created as a new
-record rather than as a new version of the first.
+Cite the **concept DOI**, `10.5281/zenodo.22545296`. Zenodo mints it once per
+record series; it always resolves to the newest version, so a reader who
+follows it a year from now lands on whatever is current rather than on the
+snapshot that happened to exist when the paper was written. It is shown on any
+version's page under "Cite all versions?".
 
-Consequences worth knowing before you cite either:
+The per-version DOIs (`22545297` for v0.3.2, `22553660` for v0.3.3,
+`22649089` for v0.3.4, and one per release after that) are the right thing to
+cite only when you mean that exact snapshot — for example in a correction entry
+that says which archive contained a defect.
 
-- There is **no concept DOI** to cite, so "cite the concept DOI" is not
-  available. Cite `22649089` explicitly.
-- The older record permanently contains the superseded corrigendum text and the
-  pre-fix code, and nothing on its page tells a reader a newer version exists.
-
-If Zenodo lets you link them retroactively, do that. If not, the honest
-mitigation is a short note on the old record pointing at the new one — a reader
-who lands on `22545297` from a search should not have to guess.
+*An earlier revision of this file asserted that the records were unlinked and
+that no concept DOI existed. That was wrong: the Versions panel lists all
+releases and shows the concept DOI. The claim came from a single automated read
+of the record page that missed the panel, and was published without a second
+check — logged as `C-29`.*
