@@ -27,6 +27,8 @@ jobs:
         run: evalid manifest verify audits/gw-srag
       - name: Anchor verification
         run: evalid anchors verify audits/gw-srag/anchors.json --root audits/gw-srag
+      - name: Paper counts match the correction log
+        run: python tools/check_paper_counts.py
       - name: Correction log derives cleanly
         run: evalid corrections CORRECTIONS.csv
       - name: CORRECTIONS.md is in sync with the CSV
