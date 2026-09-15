@@ -145,7 +145,7 @@ overstatement this protocol exists to catch.
 [`CORRECTIONS.csv`](CORRECTIONS.csv) by `evalid corrections`, so the totals
 quoted anywhere are derived rather than maintained by hand. It currently
 records 20 corrections to audit claims — 18 found by someone other than the
-author — and 8 to the release itself.
+author — and 9 to the release itself.
 
 Read the `finder_kind` column before you read the ratio. **Every external
 finder in this log was an AI model run adversarially against the artefact; none

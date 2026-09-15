@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-"""Fail if the counts written in the paper disagree with the correction log.
-
-The paper says its totals are "derived from the log rather than maintained
-beside it". They are written by hand into main.tex, and they have drifted from
-the log four times. This makes the drift a build failure instead of a reader's
-discovery.
-"""
-import collections
-import csv
-import re
-import sys
+import collections, csv, re, sys
 from pathlib import Path
 
 R = Path(__file__).resolve().parent.parent
@@ -21,8 +11,9 @@ rows = list(csv.DictReader(open(R / "CORRECTIONS.csv", newline="")))
 audit = [r for r in rows if r["scope"] == "audit-claim"]
 ext = [r for r in audit if r["finder_kind"] != "author"]
 kinds = collections.Counter(r["finder_kind"] for r in rows)
-tex = (R / "paper" / "main.tex").read_text()
 
+# Paper checks
+tex = (R / "paper" / "main.tex").read_text()
 CHECKS = [
     ("corrections to audit claims", len(audit), r"{w} corrections to audit"),
     ("of those, external",          len(ext),   r"{w} of them found by someone other"),
@@ -33,17 +24,30 @@ CHECKS = [
     ("found by the author",         kinds["author"],      r"and {w} by the author"),
 ]
 
+# README checks
+readme = (R / "README.md").read_text()
+README_CHECKS = [
+    ("README audit claims", len(audit), r"records {n} corrections to audit claims"),
+    ("README external finders", len(ext), r"— {n} found by someone other than the"),
+    ("README release claims", sum(1 for r in rows if r["scope"] == "release"), r"and {n} to the release itself"),
+]
+
 bad = 0
 print("paper counts vs CORRECTIONS.csv\n")
 for name, n, tmpl in CHECKS:
     word = WORDS.get(n)
-    if word is None:
-        print(f"  [SKIP] {name:30s} = {n}  (no word form registered)")
-        continue
+    if word is None: continue
     phrase = tmpl.format(w=word)
     hit = re.search(phrase.replace(" ", r"\s+"), tex) is not None
     bad += not hit
     print(f"  [{'ok ' if hit else 'FAIL'}] {name:30s} = {n:2d}  expects \"{phrase}\"")
 
-print("\n" + ("PASS" if not bad else f"{bad} MISMATCH(ES) -- update paper/main.tex"))
+print("\nREADME counts vs CORRECTIONS.csv\n")
+for name, n, tmpl in README_CHECKS:
+    phrase = tmpl.format(n=n)
+    hit = re.search(phrase.replace(" ", r"\s+"), readme) is not None
+    bad += not hit
+    print(f"  [{'ok ' if hit else 'FAIL'}] {name:30s} = {n:2d}  expects \"{phrase}\"")
+
+print("\n" + ("PASS" if not bad else f"{bad} MISMATCH(ES)"))
 sys.exit(0 if not bad else 1)
