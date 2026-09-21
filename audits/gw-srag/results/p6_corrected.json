@@ -1,0 +1,81 @@
+{
+ "quantity": "|corr(A_log, A_alpha)| marginalised over {ln_amp,tc,phic,ln_Mc,ln_eta,chi}",
+ "registered_threshold": 0.95,
+ "methods_agreeing": [
+  "marginalised Fisher covariance",
+  "Gram-Schmidt projection (2 passes)",
+  "grid refinement 20k/40k",
+  "finite-difference step 1e-5/1e-6"
+ ],
+ "per_alpha": {
+  "0": {
+   "shipped": 0.952,
+   "recomputed": 0.99895,
+   "uncertainty": 5.023329696651757e-09,
+   "uncertainty_method": "implementation",
+   "delta": 0.04695,
+   "exceeds_threshold": true
+  },
+  "0.5": {
+   "shipped": 0.9,
+   "recomputed": 0.94825,
+   "uncertainty": 9.332338375411808e-07,
+   "uncertainty_method": "implementation",
+   "delta": 0.04825,
+   "exceeds_threshold": false
+  },
+  "1.5": {
+   "shipped": 0.633,
+   "recomputed": 0.9817,
+   "uncertainty": 9.367274095284372e-08,
+   "uncertainty_method": "implementation",
+   "delta": 0.3487,
+   "exceeds_threshold": true
+  },
+  "2.5": {
+   "shipped": 0.285,
+   "recomputed": 0.91296,
+   "uncertainty": 4.2663361310424364e-07,
+   "uncertainty_method": "implementation",
+   "delta": 0.62796,
+   "exceeds_threshold": false
+  },
+  "3": {
+   "shipped": 0.139,
+   "recomputed": 0.86794,
+   "uncertainty": 5.850998603951219e-07,
+   "uncertainty_method": "implementation",
+   "delta": 0.72894,
+   "exceeds_threshold": false
+  },
+  "3.5": {
+   "shipped": 0.036,
+   "recomputed": 0.81903,
+   "uncertainty": 7.16345090800985e-07,
+   "uncertainty_method": "implementation",
+   "delta": 0.78303,
+   "exceeds_threshold": false
+  },
+  "4": {
+   "shipped": 0.025,
+   "recomputed": 0.76907,
+   "uncertainty": 8.13768006757698e-07,
+   "uncertainty_method": "implementation",
+   "delta": 0.74407,
+   "exceeds_threshold": false
+  }
+ },
+ "shipped_max": 0.952,
+ "recomputed_max": 0.99895,
+ "shipped_n_above_threshold": 1,
+ "recomputed_n_above_threshold": 2,
+ "verdict": "FAIL",
+ "verdict_direction": "unchanged: FAIL",
+ "environment": {
+  "python": "3.11.15",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "platform": "Linux-6.18.44-fc-v24-x86_64-with-glibc2.39",
+  "seed": 20260906
+ }
+}

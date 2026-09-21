@@ -1,0 +1,54 @@
+\begin{thebibliography}{1}
+
+\bibitem{balepur2024artifacts}
+Nishant Balepur, Abhilasha Ravichander, and Rachel Rudinger.
+\newblock Artifacts or abduction: How do {LLM}s answer multiple-choice
+  questions without the question?
+\newblock In {\em Proceedings of the 62nd Annual Meeting of the Association for
+  Computational Linguistics}, 2024.
+\newblock arXiv:2402.12483.
+
+\bibitem{benjamini1995controlling}
+Yoav Benjamini and Yosef Hochberg.
+\newblock Controlling the false discovery rate: a practical and powerful
+  approach to multiple testing.
+\newblock {\em Journal of the Royal Statistical Society: Series B},
+  57(1):289--300, 1995.
+
+\bibitem{buonanno2009comparison}
+Alessandra Buonanno, Bala~R. Iyer, Evan Ochsner, Yi~Pan, and B.~S.
+  Sathyaprakash.
+\newblock Comparison of post-{N}ewtonian templates for compact binary inspiral
+  signals in gravitational-wave detectors.
+\newblock {\em Physical Review D}, 80(8):084043, 2009.
+\newblock arXiv:0907.0700.
+
+\bibitem{cutler1994gravitational}
+Curt Cutler and {\'E}anna~E. Flanagan.
+\newblock Gravitational waves from merging compact binaries: How accurately can
+  one extract the binary's parameters from the inspiral waveform?
+\newblock {\em Physical Review D}, 49(6):2658, 1994.
+\newblock arXiv:gr-qc/9402014.
+
+\bibitem{ligo2021tgr}
+{LIGO Scientific Collaboration}, {Virgo Collaboration}, and {KAGRA
+  Collaboration}.
+\newblock Tests of general relativity with {GWTC-3}.
+\newblock {\em arXiv e-prints}, 2021.
+\newblock arXiv:2112.06861.
+
+\bibitem{mirshekari2012constraining}
+Saeed Mirshekari, Nicol{\'a}s Yunes, and Clifford~M. Will.
+\newblock Constraining {L}orentz-violating, modified dispersion relations with
+  gravitational waves.
+\newblock {\em Physical Review D}, 85(2):024041, 2012.
+\newblock arXiv:1110.2720.
+
+\bibitem{vallisneri2008fisher}
+Michele Vallisneri.
+\newblock Use and abuse of the {F}isher information matrix in the assessment of
+  gravitational-wave parameter-estimation prospects.
+\newblock {\em Physical Review D}, 77(4):042001, 2008.
+\newblock arXiv:gr-qc/0703086.
+
+\end{thebibliography}

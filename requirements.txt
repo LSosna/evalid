@@ -1,0 +1,7 @@
+# EVALID pinned dependency floors.
+# numpy>=2.0 is a hard requirement: np.trapezoid was added in 2.0 and the
+# audit code uses it. Verified working set is recorded in each audit's
+# environment block.
+numpy>=2.0
+scipy>=1.11
+matplotlib>=3.7
