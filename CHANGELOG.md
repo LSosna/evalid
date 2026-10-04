@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 - 2026-10-04
+- Clean issuance: rebuilt repository history and stripped uncommitted build artifacts.
+- Protocol Baseline: Synchronized correction counts in manuscript to match CORRECTIONS.csv. 
+
 ## 0.3.4 — 2026-09-06
 
 Cut in response to an independent QA/QC and hostile-referee review of v0.3.3.
