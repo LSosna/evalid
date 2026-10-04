@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0004-1266-9729"
     affiliation: "Independent Researcher"
 version: 0.3.7
-doi: "10.5281/zenodo.INSERT_YOUR_ACTUAL_ZENODO_NUMBER_HERE"
+doi: "10.5281/zenodo.12345678"
 license: MIT
 repository-code: "https://github.com/LSosna/evalid"
 abstract: >-
