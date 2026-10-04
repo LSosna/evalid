@@ -121,7 +121,7 @@ out first will treat the original wording as the finding.
 
 ## Which DOI to cite
 
-Cite the **concept DOI**, `10.5281/zenodo.22545296`. Zenodo mints it once per
+Cite the **concept DOI**, `10.5281/zenodo.23138383`. Zenodo mints it once per
 record series; it always resolves to the newest version, so a reader who
 follows it a year from now lands on whatever is current rather than on the
 snapshot that happened to exist when the paper was written. It is shown on any
