@@ -1,0 +1,14 @@
+id,registered_prediction,verdict,evidence
+P1,Structural novelty (log term is new),FAIL,"alpha=1 of the LVK dispersion family gives exactly a ln f phase term at 2.5PN order; LVK constrain alpha=1 directly, and separately vary the 2.5PN log coefficient dchi_5l"
+P2a,C(0.08) as stated = 0.18,FAIL,recomputed 0.10509; stated value 71% high
+P2b,Headline 0.24 rad at 50-200 Hz,FAIL,"recomputed 1.0553 rad, 4.4x larger; 0.24 rad would need C=0.4621"
+P2c,lambda-vs-scale table (definition A),FAIL,GM^2/(rE_Pl) gives 0.341 at the Planck scale and 3.41e45 for a cluster; the table is inverted relative to its own formula
+P2d,Two lambda definitions agree,FAIL,"compactness GM/(Rc^2) gives 2.475e-8 for a spiral, reproducing the SPARC 2.4e-8; the energy formula does not"
+P2e,2.7e-22 rad/Mpc rate,FAIL,"0.24 rad would require 8.889e20 Mpc, 2.1e17 times the Hubble radius"
+P3,Distance scaling present,FAIL,formula is distance-independent; a propagation effect must accumulate with path length
+P4,Amplitude below detectability,REGISTERED_INVALID,registered 1/SNR threshold is wrong because the deviation is absorbable; superseded by P5
+P5,Log amplitude identifiable,FAIL,"|rho| up to 0.9992; sigma(A) inflates 410.9x on marginalisation; FF=0.999875 at lambda=0.08 leaves 0.40 sigma at SNR 25"
+P6,Separable from power-law dispersion,FAIL,"CORRECTED v1: max |rho| = 0.99895 at alpha=0, with alpha=1.5 at 0.98170 also above the 0.95 threshold; nothing in the family below 0.769. Shipped v0 reported 0.952 - see CORRIGENDUM_P6.md"
+P7,|r|>0.5 at n=15 gives p<0.01,FAIL,"exact p = 0.05770; needs r>=0.6411 at n=15, or n>=26 at r=0.5"
+P8,Host path fraction > 1e-3,FAIL,7.50e-5 (3 kpc host) to 5.00e-4 (20 kpc host) at 40 Mpc
+P9,At least 10 EM counterparts,FAIL,one confident multi-messenger event (GW170817)

@@ -1,0 +1,99 @@
+{
+ "P1_pn_order": {
+  "0": 1.0,
+  "0.5": 1.75,
+  "1": 2.5,
+  "1.5": 3.25,
+  "2": 4.0,
+  "2.5": 4.75,
+  "3": 5.5,
+  "3.5": 6.25,
+  "4": 7.0
+ },
+ "P2a": {
+  "C_0.08_stated": 0.18,
+  "C_0.08_recomputed": 0.10508706484213692,
+  "A_0.08": 0.7612735222948417
+ },
+ "P2b": {
+  "dPhi_stated_rad": 0.24,
+  "dPhi_recomputed_rad": 1.0553491912272164,
+  "C_required_for_0.24": 0.4620981203732969
+ },
+ "P2c_lambda_table": [
+  {
+   "system": "Quantum (Planck)",
+   "r_m": 1e-35,
+   "M_kg": 1e-08,
+   "lambda_claimed": 1e+34,
+   "lambda_energy_def_A": 0.34116317839324706,
+   "lambda_compactness_def_B": 0.7425452859166505
+  },
+  {
+   "system": "Atomic nucleus",
+   "r_m": 1e-15,
+   "M_kg": 1e-25,
+   "lambda_claimed": 1e-10,
+   "lambda_energy_def_A": 3.41163178393247e-55,
+   "lambda_compactness_def_B": 7.425452859166505e-38
+  },
+  {
+   "system": "Solar System",
+   "r_m": 100000000000.0,
+   "M_kg": 1e+30,
+   "lambda_claimed": 1e-10,
+   "lambda_energy_def_A": 3.411631783932471e+29,
+   "lambda_compactness_def_B": 7.425452859166506e-09
+  },
+  {
+   "system": "Dwarf galaxy",
+   "r_m": 3e+20,
+   "M_kg": 1e+38,
+   "lambda_claimed": 1e-05,
+   "lambda_energy_def_A": 1.1372105946441567e+36,
+   "lambda_compactness_def_B": 2.475150953055502e-10
+  },
+  {
+   "system": "Spiral galaxy",
+   "r_m": 3e+21,
+   "M_kg": 1e+41,
+   "lambda_claimed": 0.08,
+   "lambda_energy_def_A": 1.1372105946441567e+41,
+   "lambda_compactness_def_B": 2.4751509530555023e-08
+  },
+  {
+   "system": "Galaxy cluster",
+   "r_m": 1e+23,
+   "M_kg": 1e+44,
+   "lambda_claimed": 0.3,
+   "lambda_energy_def_A": 3.411631783932471e+45,
+   "lambda_compactness_def_B": 7.425452859166507e-07
+  }
+ ],
+ "P2e_rate": {
+  "claimed_rate_rad_per_Mpc": 2.7e-22,
+  "Mpc_needed_for_0.24_rad": 8.888888888888888e+20,
+  "Hubble_radius_Mpc": 4300.0
+ },
+ "A_floor": {
+  "lambda_star": 0.2103454780328131,
+  "A_min": 0.7052304682875136,
+  "dPhi_min_50_200Hz_rad": 0.9776570214769199
+ },
+ "P7": {
+  "p_at_r0.5_n15": 0.05769884126895998,
+  "r_needed_p0.01_n15": 0.6411448089783403,
+  "n_needed_p0.01_r0.5": 26
+ },
+ "P8_host_path_fraction": {
+  "3kpc_at_40Mpc": 7.500000000000001e-05,
+  "20kpc_at_40Mpc": 0.0005
+ },
+ "environment": {
+  "python": "3.11.15",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "platform": "Linux-6.18.44-fc-v24-x86_64-with-glibc2.39",
+  "seed": 20260906
+ }
+}

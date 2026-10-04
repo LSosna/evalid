@@ -1,0 +1,40 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt && pip install -e .
+      - name: Version strings agree
+        run: python tools/check_versions.py
+      - name: No built artefacts committed
+        run: |
+          test ! -f paper/arxiv_submission.zip || \
+            { echo "paper/arxiv_submission.zip is committed; it goes stale silently"; exit 1; }
+      - name: Protocol machinery self-test
+        run: evalid selftest
+      - name: Audit reproducer self-test (offline)
+        run: python audits/gw-srag/code/reproduce.py --selftest
+      - name: Manifest integrity
+        run: evalid manifest verify audits/gw-srag
+      - name: Anchor verification
+        run: evalid anchors verify audits/gw-srag/anchors.json --root audits/gw-srag
+      - name: Paper counts match the correction log
+        run: python tools/check_paper_counts.py
+      - name: Correction log derives cleanly
+        run: evalid corrections CORRECTIONS.csv
+      - name: CORRECTIONS.md is in sync with the CSV
+        run: |
+          evalid corrections CORRECTIONS.csv --write /tmp/gen
+          diff -q CORRECTIONS.md /tmp/gen/CORRECTIONS.md
+          diff -q corrections_summary.json /tmp/gen/corrections_summary.json
+      - name: Package conformance
+        run: evalid conform audits/gw-srag
